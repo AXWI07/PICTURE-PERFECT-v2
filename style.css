@@ -1,7 +1,7 @@
 /* ==========================================================
-   PICTURE PERFECT — DEMO SITE
+   PICTURE PERFECT
    Combines layout demos A–G and animation demos 1–10.
-   Used only by demo-index.html and demo-album.html.
+   Used only by index.html and album.html.
    ========================================================== */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }

@@ -1,6 +1,6 @@
 /* ==========================================================
-   PICTURE PERFECT — DEMO SITE
-   Used only by demo-index.html and demo-album.html.
+   PICTURE PERFECT
+   Used only by index.html and album.html.
    ========================================================== */
 
 /* ---------- hamburger menu ---------- */
@@ -110,7 +110,7 @@ if (workSection && workPreview) {
 }
 
 /* ==========================================================
-   ALBUM PAGE (demo-album.html?album=categorie/id)
+   ALBUM PAGE (album.html?album=categorie/id)
    Reads the same albums.js data as the real site.
    ========================================================== */
 const galleryEl = document.querySelector('[data-album-gallery]');
@@ -127,9 +127,9 @@ if (galleryEl && typeof ALBUMS !== 'undefined') {
   const specCount = document.querySelector('[data-spec-count]');
 
   if (album) {
-    document.title = album.title + ' — Picture Perfect (demo)';
+    document.title = album.title + ' — Picture Perfect';
     if (titleEl) titleEl.textContent = album.title;
-    if (backEl) backEl.href = 'demo-index.html#portfolio';
+    if (backEl) backEl.href = 'index.html#portfolio';
     if (specCat) specCat.textContent = category.charAt(0).toUpperCase() + category.slice(1);
     if (specCount) specCount.textContent = String(album.photos.length).padStart(3, '0');
 
