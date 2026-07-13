@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Album — Picture Perfect (demo)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600&family=Italiana&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <a href="demo-index.html" class="logo">PICTURE PERFECT</a>
+
+    <button class="hamburger" aria-label="Menu openen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav">
+      <a href="demo-index.html#portfolio">PORTFOLIO</a>
+      <a href="demo-index.html#over-mij">OVER MIJ</a>
+      <a href="demo-index.html#trouw">TROUW</a>
+      <a href="demo-index.html#contact" class="btn">BOEK NU</a>
+    </nav>
+  </header>
+
+  <!-- ===== ALBUM HEADER — layout F (filled in by demo.js) ===== -->
+  <section class="album">
+    <a class="meta album__back" data-album-back href="demo-index.html">&larr; TERUG NAAR PORTFOLIO</a>
+    <h1 class="album__title" data-album-title>ALBUM</h1>
+    <div class="album__specs">
+      <div class="meta"><span>CATEGORIE</span><span class="v" data-spec-category>—</span></div>
+      <div class="meta"><span>FOTO'S</span><span class="v" data-spec-count>—</span></div>
+      <div class="meta"><span>JAAR</span><span class="v">2025 / 2026</span></div>
+      <div class="meta"><span>LOCATIE</span><span class="v">België</span></div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY — efferd masonry with contact-sheet numbers ===== -->
+  <div class="gallery" data-album-gallery></div>
+
+  <!-- ===== FOOTER (compact) ===== -->
+  <footer class="footer">
+    <div class="footer__bottom">
+      <p class="meta">&copy; 2026 PICTURE PERFECT FOTOGRAFIE</p>
+      <a class="meta" href="privacybeleid.html">COOKIE- &amp; PRIVACYBELEID</a>
+    </div>
+  </footer>
+
+  <script src="albums.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>

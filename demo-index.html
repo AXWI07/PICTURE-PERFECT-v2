@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picture Perfect Fotografie — demo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Great+Vibes&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600&family=Italiana&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <a href="#" class="logo">PICTURE PERFECT</a>
+
+    <button class="hamburger" aria-label="Menu openen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav">
+      <a href="#portfolio">PORTFOLIO</a>
+      <a href="#over-mij">OVER MIJ</a>
+      <a href="#trouw">TROUW</a>
+      <a href="#contact" class="btn">BOEK NU</a>
+    </nav>
+  </header>
+
+  <!-- ===== HERO — layout A · animaties 2, 6, 10 ===== -->
+  <section class="hero">
+    <div class="hero__left">
+      <div>
+        <p class="meta hero__kicker"><span class="rule"></span>FOTOGRAFE — BELGIË</p>
+        <h1 class="hero__title">
+          <span class="line"><span>PICTURE</span></span>
+          <span class="line" style="--d: 0.12s"><span class="outline">PERFECT</span></span>
+        </h1>
+        <span class="hero__script">fotografie</span>
+      </div>
+      <div class="hero__bottom">
+        <p class="hero__intro">Spontane momenten en oprechte emoties, vastgelegd met oog voor detail.</p>
+        <p class="meta">SCROLL&nbsp;&darr;</p>
+      </div>
+    </div>
+    <div class="hero__photo kenburns grain">
+      <img src="images/Engels_Liesbeth_Seven-55.jpg" alt="Portret van de fotografe">
+      <div class="shade"></div>
+      <p class="meta hero__caption"><b>PICTURE PERFECT</b> — EST. 2024 &middot; BELGIË</p>
+      <p class="meta hero__index"><span><b>215</b> SPORT</span><span><b>195</b> FASHION</span><span><b>302</b> TROUW</span></p>
+      <p class="meta hero__rail">PICTURE PERFECT — EST. 2024</p>
+    </div>
+  </section>
+
+  <!-- ===== WORK INDEX — layout B · hover preview ===== -->
+  <section class="work" id="portfolio">
+    <div class="work__head" data-reveal>
+      <h2>Portfolio</h2>
+      <p class="meta">4 CATEGORIEËN — 712 FOTO'S</p>
+    </div>
+    <a class="work__row" data-reveal style="--d: 0"
+       href="demo-album.html?album=sport/etu-malta"
+       data-img="https://lh3.googleusercontent.com/pw/AP1GczOUgUw1b2BRQ9oFemK10sX04XwDrB7UsvaciZqLRn6oR9EDNGiv98q_CbRn37G__ijoA1c6UDomRSaR_aUuzw8EnG8Knd4BG7lF3eldcm-6ttCm1VPb=w800">
+      <span class="meta">01</span><span class="t">Sport</span><span class="meta cat">3 ALBUMS — 215 FOTO'S</span><span class="arrow">&rarr;</span>
+    </a>
+    <a class="work__row" data-reveal style="--d: 80"
+       href="demo-album.html?album=fashion/hayley-en-seven"
+       data-img="https://lh3.googleusercontent.com/pw/AP1GczMROOnGMHBObLc0w9D3i300BzeakVcHPfDz18PtgUvaN88l-8c12t0bu9qV8P4ljK3ycz7bYP_WKi4JByh5kErcLKpLnr0NXhb8XjUjjHo_UGBcIxXH=w800">
+      <span class="meta">02</span><span class="t">Fashion</span><span class="meta cat">1 ALBUM — 195 FOTO'S</span><span class="arrow">&rarr;</span>
+    </a>
+    <a class="work__row" data-reveal style="--d: 160"
+       data-img="https://lh3.googleusercontent.com/pw/AP1GczOoD_oBKtmNUsBpj_AtMWDXkAxZyUnltAr0d3YlluEhu7jT3jpvrstuo5F2Mp5XPmGnEB2MLs0Qw0MqGxLMna4NZozcHu5TI04O6Wfb9b3xScX22CWU=w800">
+      <span class="meta">03</span><span class="t">Lifestyle</span><span class="meta cat">BINNENKORT</span><span class="arrow">&rarr;</span>
+    </a>
+    <a class="work__row" data-reveal style="--d: 240"
+       href="demo-album.html?album=trouw/astrid-en-flor"
+       data-img="https://lh3.googleusercontent.com/pw/AP1GczN-b3W8wW5wIImS_ssWNASCvwBUyf0k1zxRsNTib-q5miihHFkq7uDGme5Lg4kL7ZRKyFI39OEI8K3gtONja9qwf_E04d7nWvlibDt3695NC1JgL4MA=w800">
+      <span class="meta">04</span><span class="t">Trouw</span><span class="meta cat">1 ALBUM — 302 FOTO'S</span><span class="arrow">&rarr;</span>
+    </a>
+    <img class="work__preview" src="" alt="">
+  </section>
+
+  <!-- ===== MUSEUM GRID — layout C · animaties 5, 7 ===== -->
+  <section class="museum">
+    <div class="museum__head" data-reveal>
+      <h2>Recente albums</h2>
+      <p class="meta">SELECTIE — 2025 / 2026</p>
+    </div>
+    <div class="museum__grid">
+      <a class="museum__item m-a curtain" href="demo-album.html?album=sport/etu-malta">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczOUgUw1b2BRQ9oFemK10sX04XwDrB7UsvaciZqLRn6oR9EDNGiv98q_CbRn37G__ijoA1c6UDomRSaR_aUuzw8EnG8Knd4BG7lF3eldcm-6ttCm1VPb=w800" alt="Etu Malta">
+        <p class="meta"><span><b>ETU MALTA</b> — SPORT</span><span>074</span></p>
+      </a>
+      <a class="museum__item m-b curtain" href="demo-album.html?album=sport/bayley-en-gina-2027">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczMROOnGMHBObLc0w9D3i300BzeakVcHPfDz18PtgUvaN88l-8c12t0bu9qV8P4ljK3ycz7bYP_WKi4JByh5kErcLKpLnr0NXhb8XjUjjHo_UGBcIxXH=w800" alt="Bayley en Gina">
+        <p class="meta"><span><b>BAYLEY EN GINA</b> — SPORT</span><span>082</span></p>
+      </a>
+      <a class="museum__item m-c curtain" href="demo-album.html?album=sport/seven">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczN-b3W8wW5wIImS_ssWNASCvwBUyf0k1zxRsNTib-q5miihHFkq7uDGme5Lg4kL7ZRKyFI39OEI8K3gtONja9qwf_E04d7nWvlibDt3695NC1JgL4MA=w800" alt="Seven">
+        <p class="meta"><span><b>SEVEN</b> — SPORT</span><span>059</span></p>
+      </a>
+      <a class="museum__more" href="#portfolio" data-reveal>MEER<br>WERK&nbsp;&rarr;</a>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT — layout D · animaties 3, 5 ===== -->
+  <section class="about" id="over-mij">
+    <div class="about__photo curtain">
+      <img src="images/Lies.jpg" alt="Portret van Lies">
+      <p class="meta"><b>LIES</b> — BELGIË</p>
+    </div>
+    <div class="about__body">
+      <h2 class="about__quote blur-in">&ldquo;Ik fotografeer geen poses — ik wacht op <span class="accent">het moment</span> ertussen.&rdquo;</h2>
+      <p class="about__text" data-reveal>Picture Perfect by Lies is een hobby die uitgroeide tot een echte passie. Vanuit België leg ik spontane momenten en oprechte emoties vast met oog voor detail, zodat jij herinneringen hebt om voor altijd te koesteren.</p>
+      <p class="about__sig" data-reveal style="--d: 150">Lies</p>
+      <div class="about__facts" data-reveal style="--d: 300">
+        <div class="meta"><span>GEVESTIGD</span><span class="v">België</span></div>
+        <div class="meta"><span>FOCUS</span><span class="v">Sport · Fashion · Trouw</span></div>
+        <div class="meta"><span>BOEKINGEN</span><span class="v">Open voor 2026</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TROUW — layout E · animaties 4, 6, 10 ===== -->
+  <section class="trouw" id="trouw">
+    <div class="trouw__bg kenburns grain">
+      <img src="images/Trouw.png" alt="">
+      <div class="shade"></div>
+    </div>
+    <p class="meta corner c1">TROUW</p>
+    <p class="meta corner c2">EST. 2024</p>
+    <p class="meta corner c3">ASTRID &amp; FLOR — 302 FOTO'S</p>
+    <p class="meta corner c4">PICTURE PERFECT</p>
+    <div class="trouw__lockup">
+      <span class="trouw__big">WEDDING</span>
+      <span class="trouw__script">Album</span>
+      <div class="trouw__btnrow">
+        <a href="demo-album.html?album=trouw/astrid-en-flor" class="btn btn--sweep">CHECK ALBUM</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE — animatie 8 ===== -->
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>PICTURE PERFECT</span><span class="outline">FOTOGRAFIE</span><span>SPORT</span><span class="outline">FASHION</span><span>LIFESTYLE</span><span class="outline">TROUW</span>
+      <span>PICTURE PERFECT</span><span class="outline">FOTOGRAFIE</span><span>SPORT</span><span class="outline">FASHION</span><span>LIFESTYLE</span><span class="outline">TROUW</span>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER — layout G · animaties 1, 9 ===== -->
+  <footer class="footer" id="contact">
+    <div class="footer__cta">
+      <h2><span class="script" data-reveal>Laten we</span><span class="cascade">SAMENWERKEN</span></h2>
+      <a href="mailto:Lies.engels@telenet.be" class="btn">BOEK EEN SHOOT</a>
+    </div>
+    <div class="footer__cols">
+      <div data-reveal>
+        <p class="meta">CONTACT</p>
+        <a href="mailto:Lies.engels@telenet.be">Lies.engels@telenet.be</a>
+        <a href="tel:+32497110174">+32 497 11 01 74</a>
+      </div>
+      <div data-reveal style="--d: 100">
+        <p class="meta">VOLG</p>
+        <a href="https://www.instagram.com/picture_perfect.be1/" target="_blank" rel="noopener">Instagram &nearr;</a>
+        <a href="https://www.facebook.com/profile.php?id=61589192260139" target="_blank" rel="noopener">Facebook &nearr;</a>
+      </div>
+      <div data-reveal style="--d: 200">
+        <p class="meta">MENU</p>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#over-mij">Over mij</a>
+        <a href="#trouw">Trouw</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="meta">&copy; 2026 PICTURE PERFECT FOTOGRAFIE</p>
+      <a class="meta" href="privacybeleid.html">COOKIE- &amp; PRIVACYBELEID</a>
+    </div>
+  </footer>
+
+  <script src="demo.js"></script>
+</body>
+</html>
