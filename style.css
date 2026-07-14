@@ -416,6 +416,10 @@ ul { list-style: none; }
     margin-top: 2rem;
   }
 }
+/* mobiel/tablet: geen hover mogelijk, dus meteen in kleur */
+@media (hover: none), (pointer: coarse), (max-width: 1024px) {
+  .museum__item img { filter: none; }
+}
 
 /* ==========================================================
    ABOUT SPREAD (layout D + blur quote + curtain portrait)
