@@ -242,7 +242,7 @@ ul { list-style: none; }
 }
 
 /* ==========================================================
-   HERO (volbeeld + gecentreerde lockup + animations 2, 6, 10)
+   HERO (overlap: titel over de foto + animations 2, 6, 10)
    ========================================================== */
 .hero {
   min-height: 100svh;
@@ -251,26 +251,35 @@ ul { list-style: none; }
 }
 .hero__photo {
   position: absolute;
-  inset: 0;
+  top: 0; right: 0; bottom: 0;
+  /* breed genoeg zodat de titel altijd over de foto valt, ook op grote schermen */
+  width: max(62%, calc(100% - 780px));
+  overflow: hidden;
 }
 .hero__photo img {
   width: 100%; height: 100%;
   object-fit: cover;
-  filter: grayscale(100%) contrast(1.05) brightness(0.7);
+  filter: grayscale(100%) contrast(1.05);
+}
+.hero__photo .shade {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(10, 10, 10, 0.35), transparent 40%);
+  z-index: 3;
 }
 .hero__lockup {
   position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  top: 50%; left: var(--pad);
+  transform: translateY(-50%);
   z-index: 5;
-  text-align: center;
 }
+.hero__kicker { margin-bottom: 2rem; }
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 12vw, 12rem);
+  font-size: clamp(3.5rem, 12.5vw, 15rem);
   line-height: 0.9;
   text-transform: uppercase;
-  text-shadow: 0 2px 50px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.4);
 }
 .hero__title .outline {
   color: transparent;
@@ -281,16 +290,13 @@ ul { list-style: none; }
   font-family: var(--font-script);
   font-size: clamp(2rem, 5vw, 4.5rem);
   display: block;
-  margin-top: -0.3em;
+  margin: -0.2em 0 0 3.5em;
   rotate: -3deg;
 }
 .hero__meta {
   position: absolute;
-  bottom: 2.5rem; left: 50%;
-  transform: translateX(-50%);
+  left: var(--pad); bottom: 2.5rem;
   z-index: 5;
-  text-align: center;
-  white-space: nowrap;
 }
 /* line mask reveal (animation 2) */
 .line { overflow: hidden; display: block; }
@@ -301,13 +307,20 @@ ul { list-style: none; }
   transition-delay: var(--d, 0s);
 }
 .play .line > span { transform: translateY(0); }
+.hero__kicker,
 .hero__script,
 .hero__meta {
   opacity: 0;
   transition: opacity 1s ease 0.7s;
 }
+.play .hero__kicker,
 .play .hero__script,
 .play .hero__meta { opacity: 1; }
+@media (max-width: 900px) {
+  .hero__photo { width: 100%; opacity: 0.45; }
+  .hero__title { white-space: normal; }
+  .hero__script { margin-left: 1.5em; }
+}
 
 /* ==========================================================
    WORK INDEX (layout B + hover preview)
@@ -684,3 +697,85 @@ ul { list-style: none; }
 .gallery figcaption { margin-top: 0.5rem; }
 @media (min-width: 600px)  { .gallery { columns: 2; } }
 @media (min-width: 1024px) { .gallery { columns: 4; } }
+
+/* categorie-overzicht: één kaart per album */
+.gallery--albums {
+  columns: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.albumcard { display: block; }
+.albumcard img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.6s ease;
+}
+.albumcard:hover img { filter: none; }
+.albumcard figcaption {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+}
+@media (max-width: 900px) {
+  .gallery--albums { grid-template-columns: 1fr; }
+}
+@media (hover: none), (pointer: coarse), (max-width: 1024px) {
+  .albumcard img { filter: none; }
+}
+
+/* ==========================================================
+   LEGAL (privacybeleid)
+   ========================================================== */
+.legal {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 3rem var(--pad) 7rem;
+}
+.legal__intro {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  line-height: 1.55;
+  margin-bottom: 4rem;
+}
+.legal section { margin-bottom: 3.5rem; }
+.legal h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.legal h2 .meta { display: block; margin-bottom: 0.5rem; }
+.legal p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+.legal p b, .legal li b { color: var(--text); font-weight: 600; }
+.legal ul {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+  list-style: square;
+}
+.legal li {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 0.4rem;
+}
+.legal a { text-decoration: underline; text-underline-offset: 3px; }
+.legal a:hover { color: var(--text); }
+.legal__basis {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

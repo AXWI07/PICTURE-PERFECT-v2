@@ -117,20 +117,66 @@ const galleryEl = document.querySelector('[data-album-gallery]');
 
 if (galleryEl && typeof ALBUMS !== 'undefined') {
   const param = new URLSearchParams(window.location.search).get('album') || '';
-  const parts = param.split('/');
+  const parts = param.split('/').filter(Boolean);
   const category = parts[0];
-  const album = (ALBUMS[category] || []).find((a) => a.id === parts[1]);
+  const albums = ALBUMS[category] || [];
+  const album = parts.length > 1 ? albums.find((a) => a.id === parts[1]) : null;
 
   const titleEl = document.querySelector('[data-album-title]');
   const backEl = document.querySelector('[data-album-back]');
   const specCat = document.querySelector('[data-spec-category]');
   const specCount = document.querySelector('[data-spec-count]');
+  const catName = category ? category.charAt(0).toUpperCase() + category.slice(1) : '';
 
-  if (album) {
+  if (parts.length === 1 && albums.length) {
+    /* ---- categorie-overzicht: één kaart per album ---- */
+    document.title = catName + ' — Picture Perfect';
+    if (titleEl) titleEl.textContent = catName;
+    if (backEl) backEl.href = 'index.html#portfolio';
+    if (specCat) specCat.textContent = catName;
+    if (specCount) {
+      const total = albums.reduce((n, a) => n + a.photos.length, 0);
+      specCount.textContent = albums.length + ' ALBUMS — ' + total;
+    }
+
+    galleryEl.classList.add('gallery--albums');
+    albums.forEach((a) => {
+      const card = document.createElement('a');
+      card.className = 'albumcard';
+      card.href = 'album.html?album=' + category + '/' + a.id;
+
+      const fig = document.createElement('figure');
+      const img = document.createElement('img');
+      img.src = a.photos[0] + '=w800';
+      img.decoding = 'async';
+      img.alt = a.title;
+
+      const cap = document.createElement('figcaption');
+      cap.className = 'meta';
+      cap.innerHTML = '<span><b>' + a.title.toUpperCase() + '</b></span><span>' +
+        String(a.photos.length).padStart(3, '0') + '</span>';
+
+      const show = () => fig.classList.add('is-loaded');
+      if (img.complete) show();
+      else img.addEventListener('load', show);
+      img.addEventListener('error', show); /* kaart altijd tonen, ook als de cover hapert */
+
+      fig.appendChild(img);
+      fig.appendChild(cap);
+      card.appendChild(fig);
+      galleryEl.appendChild(card);
+    });
+  } else if (album) {
+    /* ---- albumweergave: alle foto's ---- */
     document.title = album.title + ' — Picture Perfect';
     if (titleEl) titleEl.textContent = album.title;
-    if (backEl) backEl.href = 'index.html#portfolio';
-    if (specCat) specCat.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+    if (backEl && albums.length > 1) {
+      backEl.href = 'album.html?album=' + category;
+      backEl.innerHTML = '&larr; TERUG NAAR ' + category.toUpperCase();
+    } else if (backEl) {
+      backEl.href = 'index.html#portfolio';
+    }
+    if (specCat) specCat.textContent = catName;
     if (specCount) specCount.textContent = String(album.photos.length).padStart(3, '0');
 
     const total = String(album.photos.length).padStart(3, '0');
